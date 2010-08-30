@@ -1,0 +1,11 @@
+- clean up isMoreRecent (there must be a shorter, better way to compare dates)
+- add error pop ups
+- clean up src/Makefile.am to use proper stuff for the libnotify flags and libs
+- break down functions into smaller bits?
+- use a better daemon implementation than sleep()
+- add an exit mechanism
+- signal handling
+- configurable update period
+
+- anything else??
+

@@ -1,0 +1,10 @@
+To install, run 
+
+    ./configure
+
+    make && make install
+
+
+Build dependencies:
+
+You need to have headers for libnotify, libcurl, libconfig installed.

@@ -1,0 +1,11 @@
+* 0.2.2 - new release
+- added package config macros to configure.ac
+
+* 0.2.1 - next release
+- added rudimentary "daemon" mode
+- added notification bubbles
+
+* 0.1.1 - initial release
+- support for xkcd and various comics
+- authenticated proxy support
+

@@ -1,0 +1,6 @@
+* Tue Jun 29 2010 Ankur Sinha <ankursinha AT fedoraproject DOT org> - 0.2.1
+- added notification popups
+- added a sleep to make it check once every 24 hours
+
+* Mon Jun 14 2010 Ankur Sinha <ankursinha AT fedoraproject DOT org> 0.1.1
+- initial release

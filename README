@@ -1,0 +1,17 @@
+Hleahtor is a very basic application that pops a notification bubble for you 
+everytime it finds an update to your favourite comic strips.
+
+As of now, it checks for updates once every 24 hours.
+
+To run hleahtor, simple type in a terminal:
+
+$ hleahtor &
+
+There isn't an exit mechanism yet, please "kill" it to exit.
+
+Hleahtor copies system configuration files to the ~/.hleahtor directory. You can edit these
+as per your requirements. There are two config files, one for application configuration
+and the other for comics. 
+
+You will need to restart hleahtor in order for the changes in configuration files to be loaded.
+
