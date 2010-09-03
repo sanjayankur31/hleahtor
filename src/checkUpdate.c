@@ -1,28 +1,37 @@
+/*
+ * =====================================================================================
+ *
+ *       Filename:  checkUpdate.c
+ *
+ *    Description:  This file contains methods that are used in checking for new updates
+ *
+ *        Version:  1.0
+ *        Created:  03/09/10 20:31:26
+ *       Revision:  none
+ *       Compiler:  gcc
+ *
+ *         Author:  Ankur Sinha (FranciscoD), sanjay DOT ankur AT gmail DOT com
+ *        Company:  
+ *
+ * =====================================================================================
+ */
+
 /* Copyright 2010 Ankur Sinha 
-* Author: Ankur Sinha <sanjay DOT ankur AT gmail DOT com> 
-*
-* This program is free software: you can redistribute it and/or modify
-* it under the terms of the GNU General Public License as published by
-* the Free Software Foundation, either version 3 of the License, or
-* (at your option) any later version.
-* 
-* This program is distributed in the hope that it will be useful,
-* but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-* GNU General Public License for more details.
-* 
-* You should have received a copy of the GNU General Public License
-* along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*
-* File : checkUpdate.c
-*
-* Synopsis:
-* This file contains the functions needed by the app to check the
-* various sites for new strips
-*
-* Date : Mon, Jun 14 2010.
-* 
-*/
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -30,18 +39,20 @@
 #include <curl/curl.h>
 #include "checkUpdate.h"
 
-/* isMoreRecent
- * Compares two dates in the format "Wed, 16 Jun 2010 17:22:43 GMT"
+/* 
+ * ===  FUNCTION  ======================================================================
+ *         Name:  isMoreRecent
+ *  Description:  Compares two dates in the format "Wed, 16 Jun 2010 17:22:43 GMT"
  *
- * arg
- * - char * date1 
- * - const char * date2 : from the struct -> previous issue stored
+ *                Args :
+ *                - char * date1 
+ *                - const char * date2 : from the struct -> previous issue stored
  *
- * returns :
- * - int
- * - 1 if date1 is more recent tha1 date2
- * - 0 if date2 is more recent than date1
+ *                returns : int
+ *                - 1 if date1 is more recent tha1 date2
+ *                - 0 if date2 is more recent than date1
  *
+ * =====================================================================================
  */
 int
 isMoreRecent(char *date1, const char *date2)
@@ -137,17 +148,19 @@ isMoreRecent(char *date1, const char *date2)
     return 0;
 }
 
-/* hleahtorRealloc:
- * A customized function to take care of reallocs. 
- * Also taken from http://curl.haxx.se/libcurl/c/getinmemory.html
+/* 
+ * ===  FUNCTION  ======================================================================
+ *         Name:  hleahtorRealloc
+ *  Description:  A customized function to take care of reallocs
+ *                Also taken from http://curl.haxx.se/libcurl/c/getinmemory.html
  *
- * args:
- * - void *ptr : pointer to be allocated memory
- * - size : size of memory to be allocated
+ *                Args:
+ *                - void *ptr : pointer to be allocated memory
+ *                - size : size of memory to be allocated
  *
- * returns :
- * - static void*
- * - the pointer
+ *                returns : static void*
+ *                - the pointer
+ * =====================================================================================
  */
 static void *
 hleahtorRealloc(void *ptr, size_t size)
@@ -158,16 +171,20 @@ hleahtorRealloc(void *ptr, size_t size)
         return malloc(size);
 }
 
-/* hleahtorHeaderCallback:
- * callback function that saves my header
+/* 
+ * ===  FUNCTION  ======================================================================
+ *         Name:  hleahtorHeaderCallback
+ *  Description:  Callback function that saves my header
  *
- * Taken from curl example : http://curl.haxx.se/libcurl/c/getinmemory.html 
- * args:
- * - void *ptr, size_t size, size_t nmemb, void *data
+ *                Taken from curl example : http://curl.haxx.se/libcurl/c/getinmemory.html 
  *
- * returns :
- * - size_t 
- * - size of data passed by curl
+ *
+ *                Args:
+ *                - void *ptr, size_t size, size_t nmemb, void *data
+ *
+ *                returns : size_t
+ *                - size of data passed by curl
+ * =====================================================================================
  */
 size_t
 hleahtorHeaderCallback(void *ptr, size_t size, size_t nmemb, void *data)
@@ -185,19 +202,22 @@ hleahtorHeaderCallback(void *ptr, size_t size, size_t nmemb, void *data)
     return realsize;
 }
 
-/* hleahtorIsUpdateAvailable:
- * function that parses the chunk
+/* 
+ * ===  FUNCTION  ======================================================================
+ *         Name:  hleahtorIsUpdateAvailable
+ *  Description:  Function that parses the chunk
  *
- * dates in the format "Wed, 16 Jun 2010 17:22:43 GMT"
- * args:
- * - struct MemoryStruct chunk : chunk holding header
- * - struct hleahtorComicConfig *hleahtorComicConfigArray
+ *                Dates in the format "Wed, 16 Jun 2010 17:22:43 GMT"
+ *                  
+ *                Args:
+ *                - struct MemoryStruct chunk : chunk holding header
+ *                - struct hleahtorComicConfig *hleahtorComicConfigArray
  *
- * returns :
- * - int
- * - 1 if update available
- * - 0 if not
- * - something else otherwise
+ *                returns : int
+ *                - 1 if update available
+ *                - 0 if not
+ *                - something else otherwise
+ * =====================================================================================
  */
 int   
 hleahtorIsUpdateAvailable(struct MemoryStruct chunk, struct hleahtorComicConfig *hleahtorComicConfigSingle)
@@ -250,20 +270,22 @@ hleahtorIsUpdateAvailable(struct MemoryStruct chunk, struct hleahtorComicConfig 
 
 }
 
-/* hleahtorCheckUpdate:
- * function that checks for updates
- * 
- * args:
- * - struct hleahtorConfig hleahtorAppConfig : structure containing info parsed 
- *   from the main config file for app.
+/* 
+ * ===  FUNCTION  ======================================================================
+ *         Name:  hleahtorCheckUpdate
+ *  Description:  This method checks for updates
+ *                  
+ *                  Args :
+ *                  - struct hleahtorConfig hleahtorAppConfig : structure containing info
+ *                    parsed from the main config file for app
+ *                  - struct hleahtorComicConfig *hleahtorComicConfigArray : an array of 
+ *                    the structure containing info parsed from the comic configurations
+ *                    file
  *
- * - struct hleahtorComicConfig *hleahtorComicConfigArray : an array of the structure 
- *   containing info parsed from the comics configuration file.
- *
- * returns :
- * - int
- * - 0 if successful
- * - non zero on error
+ *                  returns : int
+ *                  - 0 if successful
+ *                  - non zero otherwise
+ * =====================================================================================
  */
 int
 hleahtorCheckUpdate(struct hleahtorConfig hleahtorAppConfig, struct hleahtorComicConfig *hleahtorComicConfigArray)

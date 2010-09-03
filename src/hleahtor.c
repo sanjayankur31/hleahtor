@@ -1,29 +1,38 @@
-/* Copyright 2010 Ankur Sinha 
-* Author: Ankur Sinha <sanjay DOT ankur AT gmail DOT com> 
-*
-* This program is free software: you can redistribute it and/or modify
-* it under the terms of the GNU General Public License as published by
-* the Free Software Foundation, either version 3 of the License, or
-* (at your option) any later version.
-* 
-* This program is distributed in the hope that it will be useful,
-* but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-* GNU General Public License for more details.
-* 
-* You should have received a copy of the GNU General Public License
-* along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*
-* File : hleahtor.c
-*
-* Synopsis:
-* This file contains the function "main". The main function 
-* is the callee for most of the other methods. 
-*
-* Date : Tue, Jun 15 2010.
-* 
-*/
+/*
+ * =====================================================================================
+ *
+ *       Filename:  hleahtor.c
+ *
+ *    Description:  This file contains the funcion "main". The main function
+ *                  is the callee for the other functions
+ *
+ *        Version:  1.0
+ *        Created:  15/07/10 20:31:26
+ *       Revision:  none
+ *       Compiler:  gcc
+ *
+ *         Author:  Ankur Sinha (FranciscoD), sanjay DOT ankur AT gmail DOT com
+ *        Company:  
+ *
+ * =====================================================================================
+ */
 
+/* Copyright 2010 Ankur Sinha 
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -37,19 +46,19 @@
 
 int hleahtorDebug = 0;
 
-/* main:
- * main function for the hleahtor app which invokes its 
- * other parts
+/* 
+ * ===  FUNCTION  ======================================================================
+ *         Name:  main
+ *  Description:  main function for the hleahtor app
  *
- * args:
- * - int argc : number of arguments on command line
+ *                Args:
+ *                - int argc : number of arguments on command line
+ *                - char **argv : an array that stores the arguments
  *
- * - char **argv : an array that stores the arguments
- *
- * returns:
- * - int
- * - 0 on successful functioning
- * - non zero on error
+ *                returns: int
+ *                - 0 on successful functioning
+ *                - non zero on error
+ * =====================================================================================
  */
 int 
 main(int argc, char **argv){

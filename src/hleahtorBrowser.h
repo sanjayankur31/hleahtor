@@ -1,12 +1,12 @@
 /*
  * =====================================================================================
  *
- *       Filename:  configParser.h
+ *       Filename:  hleahtorBrowser.h
  *
- *    Description:  header to configParser.c
+ *    Description:  header to hleahtorBrowser.c
  *
  *        Version:  1.0
- *        Created:  22/06/10 20:32:11
+ *        Created:  03/09/10 20:32:11
  *       Revision:  none
  *       Compiler:  gcc
  *
@@ -33,8 +33,7 @@
  *
  */
 
-#include "hleahtorCommon.h"
-/* debugs */
-extern int hleahtorDebug;
 
-/* end of configParser.h */
+#include "hleahtorCommon.h"
+
+extern int hleahtorDebug;

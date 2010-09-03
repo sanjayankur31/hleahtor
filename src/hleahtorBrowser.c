@@ -1,12 +1,12 @@
 /*
  * =====================================================================================
  *
- *       Filename:  configParser.h
+ *       Filename:  hleahtorBrowser.c
  *
- *    Description:  header to configParser.c
+ *    Description:  a clutter browser that shows updates (like pino?)
  *
  *        Version:  1.0
- *        Created:  22/06/10 20:32:11
+ *        Created:  03/09/10 20:31:26
  *       Revision:  none
  *       Compiler:  gcc
  *
@@ -33,8 +33,26 @@
  *
  */
 
-#include "hleahtorCommon.h"
-/* debugs */
-extern int hleahtorDebug;
+#include <stdio.h>
 
-/* end of configParser.h */
+/* 
+ * ===  FUNCTION  ======================================================================
+ *         Name:  hleahtorBrowser
+ *  Description:  This method is responsible for displaying the clutter frontend which 
+ *                will display update bubbles.
+ *
+ *                Args:
+ *                - hleahtorConfig hleahtorAppConfig : the application configuration struct
+ *                - hleahtorComicConfig * hleahtorComicConfigArray : the array holding per
+ *                     comic data
+ *
+ *                returns : int
+ *                - 0 on success
+ *                - non zero otherwise
+ * =====================================================================================
+ */
+int
+hleahtorBrowser (struct hleahtorConfig hleahtorAppConfig, struct hleahtorComicConfig *hleahtorComicConfigArray)
+{
+    return ;
+}		/* -----  end of function hleahtorBrowser  ----- */

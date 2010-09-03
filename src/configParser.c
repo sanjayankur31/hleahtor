@@ -1,29 +1,40 @@
+/*
+ * =====================================================================================
+ *
+ *       Filename:  configParser.c
+ *
+ *    Description:  This file contains the functions that parse the config
+ *                  files and populate the various structures needed by the app.
+ *
+ *                  See hleahtorCommon.h for structure definitions
+ *
+ *        Version:  1.0
+ *        Created:  15/06/10 20:31:26
+ *       Revision:  none
+ *       Compiler:  gcc
+ *
+ *         Author:  Ankur Sinha (FranciscoD), sanjay DOT ankur AT gmail DOT com
+ *        Company:  
+ *
+ * =====================================================================================
+ */
+
 /* Copyright 2010 Ankur Sinha 
-* Author: Ankur Sinha <sanjay DOT ankur AT gmail DOT com> 
-*
-* This program is free software: you can redistribute it and/or modify
-* it under the terms of the GNU General Public License as published by
-* the Free Software Foundation, either version 3 of the License, or
-* (at your option) any later version.
-* 
-* This program is distributed in the hope that it will be useful,
-* but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-* GNU General Public License for more details.
-* 
-* You should have received a copy of the GNU General Public License
-* along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*
-* File : configParser.c
-*
-* Synopsis:
-* This file contains the functions that parse the config files and populate the
-* various structures needed by the app.
-* See hleahtorCommon.h for structure definitions
-*
-* Date : Tue, June 15 2010.
-* 
-*/
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
 
 /* a Macro for error printing */
 #define hleahtorConfigError(config,location) \
@@ -38,17 +49,19 @@
 #include <string.h>
 #include "configParser.h"
 
-/* hleahtorParseMain:
- * Parses the mail hleahtor.cfg file and sets up the environment for the app.
+/* 
+ * ===  FUNCTION  ======================================================================
+ *         Name:  hleahtorParseMain
+ *  Description:  Parses the mail hleahtor.cfg file and sets up the environment for the app.
+ *
+ *                Args:
+ *                - struct hleahtorConfig *hleahtorAppConfig : pointer to structure passed from \
+ *                  main to fill up
  * 
- * args:
- *  - struct hleahtorConfig *hleahtorAppConfig : pointer to structure passed from \
- *      main to fill up
- * 
- * returns :
- *  - int 
- *  - 0 if successful
- *  - non zero otherwise
+ *                returns : int
+ *                - 0 if successful
+ *                - non zero otherwise
+ * =====================================================================================
  */
 int 
 hleahtorParseMain(struct hleahtorConfig *hleahtorAppConfig)
@@ -145,18 +158,20 @@ hleahtorParseMain(struct hleahtorConfig *hleahtorAppConfig)
     return 0;
 }
 
-/* hleahtorParseComic:
- * Parses the mail hleahtor.cfg file and sets up the environment for the app.
+/* 
+ * ===  FUNCTION  ======================================================================
+ *         Name:  hleahtorParseComic
+ *  Description:  Parses the mail hleahtor.cfg file and sets up the environment for the app.
+ *
+ *                Args:
+ *                - struct hleahtorComicConfig *hleahtorComicConfigArray : pointer to array of the \
+ *                  structure passed from main to fill up
+ *                - int numberOfComics
  * 
- * args:
- *  - struct hleahtorComicConfig *hleahtorComicConfigArray : pointer to array of the \
- *  structure passed from main to fill up
- *  - int numberOfComics
- * 
- * returns :
- *  - int 
- *  - 0 if successful
- *  - non zero otherwise
+ *                returns : int
+ *                - 0 if successful
+ *                - non zero otherwise
+ * =====================================================================================
  */
 int 
 hleahtorParseComic(struct hleahtorComicConfig *hleahtorComicConfigArray,long int numberOfComics)
@@ -223,17 +238,19 @@ hleahtorParseComic(struct hleahtorComicConfig *hleahtorComicConfigArray,long int
     return 0;
 }
 
-/* hleahtorUpdateConfig:
- * Updates the config file. Overwrites the previous issue date with the newly acquired one
+/* 
+ * ===  FUNCTION  ======================================================================
+ *         Name:  hleahtorUpdateConfig
+ *  Description:  Updates the config file. Overwrites the previous issue date with the newly acquired one
  *
- * args:
- * - int hleahtorNumberOfComics
- * - Struct hleahtorComicConfig *hleahtorComicConfigArray
+ *                Args:
+ *                - int hleahtorNumberOfComics
+ *                - Struct hleahtorComicConfig *hleahtorComicConfigArray
  *
- * returns :
- * - int
- * - 0 if successful
- * - non zero otherwise
+ *                returns : int
+ *                - 0 if successful
+ *                - non zero otherwise
+ * =====================================================================================
  */
 int
 hleahtorUpdateConfig(int hleahtorNumberOfComics,struct hleahtorComicConfig *hleahtorComicConfigArray)
